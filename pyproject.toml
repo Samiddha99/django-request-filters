@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-request-filters"
+dynamic = ["version"]
+authors = [
+  { name="Samiddha Chakrabarti", email="samiddha99@protonmail.com" },
+]
+description = "Block the users those are using VPN, Proxy, TOR or Relay."
+dependencies = ["django", "requests", "django-ipware"]
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Django :: 4.2",
+    "Environment :: Other Environment",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Topic :: Utilities"
+]
+
+[tool.hatch.version]
+path = "request_filters/__init__.py"
+
+[tool.hatch.build]
+exclude = ["requirements.txt", "/docs", "/venv", ".gitignore", ".env", "manage.py", "setup.py", "/tests"]
+
+[project.urls]
+"Homepage" = "https://pypi.org/project/django-request-filters"
+"Source code" = "https://github.com/Samiddha99/django-request-filters"
+"Bug Tracker" = "https://github.com/Samiddha99/django-request-filters/issues"
