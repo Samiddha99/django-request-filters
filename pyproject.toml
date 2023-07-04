@@ -8,6 +8,10 @@ dynamic = ["version"]
 authors = [
   { name="Samiddha Chakrabarti", email="samiddha99@protonmail.com" },
 ]
+maintainers = [
+  { name="Samiddha Chakrabarti", email="samiddha99@protonmail.com" },
+]
+keywords = ["django", "python", "security", "cybersecurity", "VPN", "Proxy", "TOR", "Relay", "djabgo security"]
 description = "Block the users those are using VPN, Proxy, TOR or Relay."
 dependencies = ["django", "requests", "django-ipware"]
 readme = "README.md"
