@@ -30,6 +30,7 @@ Use pip to install from PyPI:
      ```python
      # For example we defined a view function in views.py
      from django.shortcuts import render
+     from request_filters.decorators.ip_check import exempt_IPCheckMiddleware
 
      @exempt_IPCheckMiddleware
      def blockView(request):
@@ -44,8 +45,8 @@ Use pip to install from PyPI:
      ```
 
      If you do not defined any view function for blocked users, then by default it will show a simple HTML page contains a text "We can't allow your request, because you are using VPN or Proxy or Tor or Relay." with *status code* 418.
-
 4. Add additional settings in **settings.py** (optional):
+
    * `BLOCK_VPN (optional default: True)`
      If set to `True` all the users want accessing the site with VPN will be disallowed.
      If set to `False`, users can access the site using VPN.
@@ -83,7 +84,7 @@ MIDDLEWARE = [
    If you want to allow anonymous users to visit only some specific views, you can do that by using the `exempt_IPCheckMiddleware` decorator on the view function.
 
    ```python
-   from request_filters.decorators import exempt_IPCheckMiddleware
+   from request_filters.decorators.ip_check import exempt_IPCheckMiddleware
 
    @exempt_IPCheckMiddleware
    def home(request):
@@ -95,13 +96,10 @@ MIDDLEWARE = [
 
 ##### Using only Decorator (Use case 2):
 
-You can also controll uses' request using decorator and without using Middleware. There are two decorators available -
+You can also controll uses' request using decorator and without using Middleware. 
 
-* `exempt_IPCheckMiddleware`
-  Import this decorator by - `from request_filters.decorators import exempt_IPCheckMiddleware`
-  If  you add this decorator in a view function, this view will accessable for all the users (including anonymous users)
 * `prevent_anonymous_ip`
-  Import this decorator by - `from request_filters.decorators import prevent_anonymous_ip`
+  Import this decorator by - `from request_filters.decorators.ip_check import prevent_anonymous_ip`
   If you add this decorator to a view function, this view function will not acessable to anonymous users.
   This decorator has some optional parameter -
   * `block_vpn (optional default: settings.BLOCK_VPN)`

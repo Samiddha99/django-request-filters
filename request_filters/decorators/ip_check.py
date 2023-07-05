@@ -13,7 +13,7 @@ def exempt_IPCheckMiddleware(func):
     return _exempt_IPCheckMiddleware
 
 
-def prevent_anonymous_ip(func, block_vpn=True, block_proxy=True, block_tor=True, block_relay=True):
+def prevent_anonymous_ip(func, block_vpn=setting("BLOCK_VPN", True), block_proxy=setting("BLOCK_PROXY", True), block_tor=setting("BLOCK_TOR", True), block_relay=setting("BLOCK_RELAY", True)):
     def innerFunction(*args, **kwargs):
         request = args[0]
         client_ip, is_routable = get_client_ip(request)
