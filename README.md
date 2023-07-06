@@ -94,9 +94,11 @@ MIDDLEWARE = [
 
    Here, for the above code sample, all the users (including anonymous users) can visit the *home view*.
 
+You can use this method, when you want to block the anonymous users for almost all the view functions.
+
 ##### Using only Decorator (Use case 2):
 
-You can also controll uses' request using decorator and without using Middleware. 
+You can also controll uses' request using decorator and without using Middleware.
 
 * `prevent_anonymous_ip`
   Import this decorator by - `from request_filters.decorators.ip_check import prevent_anonymous_ip`
@@ -114,6 +116,8 @@ You can also controll uses' request using decorator and without using Middleware
   * `block_relay (optional default: settings.BLOCK_RELAY)`
     If set to `True` Relay users can't visit the view function.
     If set to `False`, Relay users can visit the view.
+
+You can use this method, when you want to block the anonymous users only for few view functions.
 
 ### **Contributing**
 
